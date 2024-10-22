@@ -267,7 +267,19 @@ input[type="number"] {
   font-size: 15px;
 } 
 
-span.cardbottom-term, span.cardtop-repayment {
+h2.mortgagecalc__active-heading {
+  color: var(--White);
+}
+
+span.cardtop-info {
+  color: var(--Lime);
+}
+
+span.cardtop-repayment {
+  color: var(--White);
+}
+
+span.cardbottom-term{
   color: var(--Lime2);
 }
 
