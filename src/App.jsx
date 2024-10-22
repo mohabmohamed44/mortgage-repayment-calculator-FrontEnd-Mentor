@@ -42,6 +42,7 @@ function postReducer(state, action) {
 
 function App() {
   const [state, dispatch] = useReducer(postReducer, initialState);
+
   useEffect(() => {
     if (state.amount && state.rate && state.term) {
       console.log("true", state.error);
@@ -137,11 +138,11 @@ function App() {
                 />
               </div>
               {state.error.amount && (
-                <span className="error-field">This feild is required</span>
+                <span className="error-field">This field is required</span>
               )}
             </div>
             <div className="mortgagecal__termrate-container">
-              <div className="momortgagecal__term">
+              <div className="mortgagecal__term">
                 <label htmlFor="amount" className="calc-termlabel">
                   Mortgage Term
                 </label>
@@ -164,10 +165,10 @@ function App() {
                   />
                 </div>
                 {state.error.term && (
-                  <span className="error-field">This feild is required</span>
+                  <span className="error-field">This field is required</span>
                 )}
               </div>
-              <div className="momortgagecal__rate">
+              <div className="mortgagecal__rate">
                 <label htmlFor="amount" className="calc-ratelabel">
                   Mortgage Rate
                 </label>
@@ -192,7 +193,7 @@ function App() {
                   />
                 </div>
                 {state.error.rate && (
-                  <span className="error-field">This feild is required</span>
+                  <span className="error-field">This field is required</span>
                 )}
               </div>
             </div>
@@ -237,7 +238,7 @@ function App() {
           <div className="mortgagecalc__button-container">
             <span className="calculatorIcon">
               <img
-                src="../assets/images/icon-calculator.svg"
+                src="/assets/images/icon-calculator.svg"
                 alt="Calculator Icon"
               />
             </span>
@@ -254,7 +255,7 @@ function App() {
             <div className="mortgagecalc__empty">
               <div className="mortgagecalc__empty-imgcontainer">
                 <img
-                  src="../assets/images/illustration-empty.svg"
+                  src="/assets/images/illustration-empty.svg"
                   alt="empty illustration"
                 />
               </div>
@@ -268,7 +269,7 @@ function App() {
             </div>
           ) : (
             <div className="mortgagecalc__active">
-              <h2 className="martgagecalc__active-heading">Your results</h2>
+              <h2 className="mortgagecalc__active-heading">Your results</h2>
               <p className="mortgagecalc__active-info">
                 Your results are shown below based on the information you
                 provided. To adjust the results, edit the form and click
@@ -276,15 +277,16 @@ function App() {
               </p>
               <div className="mortgagecalc__active-cardcontainer">
                 <div className="mortgagecalc__active-cardtop">
-                  <span className="cardtop-info">our monthly repayments</span>
-                  <span className="cardtop-info-amount">£1,794.94</span>
+                  <span className="cardtop-info">Your monthly repayments</span>
+                  <span className="cardtop-repayment">£1232</span>
                 </div>
-                <div className="line"></div>
                 <div className="mortgagecalc__active-cardbottom">
-                  <span className="cardbottom-info">
-                    Total you will repay over the term
-                  </span>
-                  <span className="cardbottom-info-amount">£539,229.89</span>
+                  <span className="cardbottom-term">Mortgage Term</span>
+                  <span className="cardbottom-info">{state.term} years</span>
+                  <span className="cardbottom-term">Mortgage Amount</span>
+                  <span className="cardbottom-info">£{state.amount}</span>
+                  <span className="cardbottom-term">Mortgage Rate</span>
+                  <span className="cardbottom-info">{state.rate}%</span>
                 </div>
               </div>
             </div>
